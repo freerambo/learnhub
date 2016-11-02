@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spring Boot Web Service Demo</title>
+</head>
+<body>
+
+<h4>1. sequential access by APIs:</h4>
+
+step1:
+<ul>
+<li><a href="http://localhost:8080/api/books?page=0&size=10">List first page(10 items per page)</a> http://localhost:8080/api/books?page=0&size=10</li>
+<li><a href="http://localhost:8080/api/books?page=1&size=2">List second page(2 items per page)</a>http://localhost:8080/api/books?page=1&size=2</li>
+</ul>
+
+step2:
+
+<ul>
+<li><a href="http://localhost:8080/api/accounts/login?email=calvin.xiao@erian.io&password=erian">Login as Calvin(pls save Token)</a>http://localhost:8080/api/accounts/login?email=calvin.xiao@erian.io&password=erian</li>
+<li> <a href="http://localhost:8080/api/books/3/request?token=replaceme">Calvin request to borrow David's book (replace the Token in URL as previous saved value)</a>http://localhost:8080/api/books/3/request?token=replaceme</li>
+<li> <a href="http://localhost:8080/api/myborrowedbook?token=replaceme">List all books borrowed by Cavlin(replace the token)</a>http://localhost:8080/api/myborrowedbook?token=replaceme</li>
+</ul>
+
+step3:
+
+<ul>
+<li><a href="http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=erian">Login as David</a>http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=erian</li>
+<li><a href="http://localhost:8080/api/books/3/confirm?token=replaceme">Confirm borrow by David</a>http://localhost:8080/api/books/3/confirm?token=replaceme</li>
+<li><a href="http://localhost:8080/api/mybook?token=replaceme">List all books borrowed by David</a>http://localhost:8080/api/mybook?token=replaceme</li>
+</ul>
+
+step4:
+
+<ul>
+<li><a href="http://localhost:8080/api/books/3/return?token=replaceme">David return the book so others can borrow</a>http://localhost:8080/api/books/3/return?token=replaceme</li>
+<li><a href="http://localhost:8080/api/books/3">List the current status of the book</a>http://localhost:8080/api/books/3</li>
+</ul>
+
+other flow:
+
+<ul>
+<li><a href="http://localhost:8080/api/books/3/cancel?token=replaceme">Calvin cancel the apply, replace the token</a>http://localhost:8080/api/books/3/cancel?token=replaceme</li>
+<li><a href="http://localhost:8080/api/books/3/reject?token=replaceme">David reject the apply, replace the token</a>http://localhost:8080/api/books/3/reject?token=replaceme</li>
+</ul>
+
+
+<h4>2. Access the application management Endpoints:</h4>
+<ul>
+<li><a href="http://localhost:7002/health">http://localhost:7002/health</a></li>
+<li><a href="http://localhost:7002/info">http://localhost:7002/info</a></li>
+<li><a href="http://localhost:7002/dump">http://localhost:7002/dump</a></li>
+<li><a href="http://localhost:7002/metrics">http://localhost:7002/metrics</a></li>
+<li><a href="http://localhost:7002/env">http://localhost:7002/env</a></li>
+<li><a href="http://localhost:7002/mappings">http://localhost:7002/mappings</a></li>
+
+<li>shutdown(disable by default, POST method)</li>
+</ul>
+
+
+<h4>3. JMX: through Restful api with jolokia:</h4>
+<ul>
+<li><a href="http://localhost:7002/jolokia/read/Tomcat:type=Connector,port=8080">Tomcat MBean</a></li>
+</ul>
+
+
+<h4>4. At development Profile with H2 Console, we can visit the data of DB</h4>
+<ul>
+<li><a href="http://localhost:8080/h2">http://localhost:8080/h2/</a></li>
+</ul>
+</body>
+</html>
