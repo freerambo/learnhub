@@ -1,4 +1,4 @@
-package org.erian.examples.bootapi.repository;
+package org.erian.examples.bootapi.service;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -8,33 +8,25 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.erian.examples.bootapi.BootApiApplication;
-import org.erian.examples.bootapi.domain.Book;
-import org.erian.examples.bootapi.repository.BookDao;
+import org.erian.examples.bootapi.service.mail.MailService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = BootApiApplication.class)
 @DirtiesContext
-public class BookDaoTest {
+public class MailServiceTest {
 
 	@Autowired
-	private BookDao bookDao;
+	private MailService mailService;
 
 	@Test
-	public void findByOwnerId() {
-		List<Book> books = bookDao.findByOwnerId(1L, new PageRequest(0, 10));
-		assertThat(books).hasSize(2);
-		assertThat(books.get(0).title).isEqualTo("Big Data日知录");
+	public void sendEmail() {
+		mailService.sendMail("88515221@qq.com", "test@gmail.com", "Test", "content");		
 	}
 
-	@Test
-	public void findByBorrowerId() {
-		List<Book> books = bookDao.findByBorrowerId(1L, new PageRequest(0, 10));
-		assertThat(books).hasSize(0);
-	}
+	
 	
 	
 }
