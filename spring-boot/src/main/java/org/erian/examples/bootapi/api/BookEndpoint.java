@@ -22,6 +22,7 @@ import org.erian.examples.bootapi.service.exception.ErrorCode;
 import org.erian.examples.bootapi.service.exception.ServiceException;
 import org.erian.modules.constants.MediaTypes;
 import org.erian.modules.mapper.BeanMapper;
+import org.javasimon.aop.Monitored;
 
 // Spring Restful MVC Controller的标识, 直接输出内容，不调用template引擎.
 @RestController
@@ -39,6 +40,7 @@ public class BookEndpoint {
 	private BookBorrowService borrowService;
 
 	@RequestMapping(value = "/api/books", produces = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public List<BookDto> listAllBook(Pageable pageable) {
 		Iterable<Book> books = adminService.findAll(pageable);
 
@@ -46,6 +48,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}", produces = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public BookDto listOneBook(@PathVariable("id") Long id) {
 		Book book = adminService.findOne(id);
 
@@ -53,6 +56,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books", method = RequestMethod.POST, consumes = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public void createBook(@RequestBody BookDto bookDto,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -67,6 +71,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/modify", method = RequestMethod.POST, consumes = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public void modifyBook(@RequestBody BookDto bookDto,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -76,6 +81,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/delete")
+	@Monitored
 	public void deleteBook(@PathVariable("id") Long id, @RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
 		Account currentUser = accountService.getLoginUser(token);
@@ -83,6 +89,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/request")
+	@Monitored
 	public void applyBorrowRequest(@PathVariable("id") Long id,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -91,6 +98,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/cancel")
+	@Monitored
 	public void cancelBorrowRequest(@PathVariable("id") Long id,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -99,6 +107,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/confirm")
+	@Monitored
 	public void markBookBorrowed(@PathVariable("id") Long id,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -107,6 +116,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/reject")
+	@Monitored
 	public void rejectBorrowRequest(@PathVariable("id") Long id,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -115,6 +125,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/books/{id}/return")
+	@Monitored
 	public void markBookReturned(@PathVariable("id") Long id,
 			@RequestParam(value = "token", required = false) String token) {
 		checkToken(token);
@@ -123,6 +134,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/mybook", produces = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public List<BookDto> listMyBook(@RequestParam(value = "token", required = false) String token, Pageable pageable) {
 		checkToken(token);
 		Account currentUser = accountService.getLoginUser(token);
@@ -131,6 +143,7 @@ public class BookEndpoint {
 	}
 
 	@RequestMapping(value = "/api/myborrowedbook", produces = MediaTypes.JSON_UTF_8)
+	@Monitored
 	public List<BookDto> listMyBorrowedBook(@RequestParam(value = "token", required = false) String token,
 			Pageable pageable) {
 		checkToken(token);
