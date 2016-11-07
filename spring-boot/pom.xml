@@ -42,6 +42,9 @@
 		<powermock.version>1.6.3</powermock.version>
 		<javasimon.version>3.5.2</javasimon.version>
 
+
+		<springfox.version>2.5.0</springfox.version>
+
 		<!-- Plugin的属性 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
@@ -140,6 +143,21 @@
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+
+		
+		<!-- SpringFox Swagger UI -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
 		</dependency>
 
 

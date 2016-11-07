@@ -16,15 +16,15 @@ step1:
 step2:
 
 <ul>
-<li><a href="http://localhost:8080/api/accounts/login?email=calvin.xiao@erian.io&password=erian">Login as Calvin(pls save Token)</a>http://localhost:8080/api/accounts/login?email=calvin.xiao@erian.io&password=erian</li>
-<li> <a href="http://localhost:8080/api/books/3/request?token=replaceme">Calvin request to borrow David's book (replace the Token in URL as previous saved value)</a>http://localhost:8080/api/books/3/request?token=replaceme</li>
+<li><a href="http://localhost:8080/api/accounts/login?email=rambo.zhu@erian.io&password=springside">Login as Rambo(pls save Token)</a>http://localhost:8080/api/accounts/login?email=rambo.zhu@erian.io&password=springside</li>
+<li> <a href="http://localhost:8080/api/books/3/request?token=replaceme">Rambo request to borrow David's book (replace the Token in URL as previous saved value)</a>http://localhost:8080/api/books/3/request?token=replaceme</li>
 <li> <a href="http://localhost:8080/api/myborrowedbook?token=replaceme">List all books borrowed by Cavlin(replace the token)</a>http://localhost:8080/api/myborrowedbook?token=replaceme</li>
 </ul>
 
 step3:
 
 <ul>
-<li><a href="http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=erian">Login as David</a>http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=erian</li>
+<li><a href="http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=springside">Login as David</a>http://localhost:8080/api/accounts/login?email=david.wang@erian.io&password=springside</li>
 <li><a href="http://localhost:8080/api/books/3/confirm?token=replaceme">Confirm borrow by David</a>http://localhost:8080/api/books/3/confirm?token=replaceme</li>
 <li><a href="http://localhost:8080/api/mybook?token=replaceme">List all books borrowed by David</a>http://localhost:8080/api/mybook?token=replaceme</li>
 </ul>
@@ -32,14 +32,14 @@ step3:
 step4:
 
 <ul>
-<li><a href="http://localhost:8080/api/books/3/return?token=replaceme">David return the book so others can borrow</a>http://localhost:8080/api/books/3/return?token=replaceme</li>
+<li><a href="http://localhost:8080/api/books/3/return?token=replaceme">Rambo return the book so others can borrow</a>http://localhost:8080/api/books/3/return?token=replaceme</li>
 <li><a href="http://localhost:8080/api/books/3">List the current status of the book</a>http://localhost:8080/api/books/3</li>
 </ul>
 
 other flow:
 
 <ul>
-<li><a href="http://localhost:8080/api/books/3/cancel?token=replaceme">Calvin cancel the apply, replace the token</a>http://localhost:8080/api/books/3/cancel?token=replaceme</li>
+<li><a href="http://localhost:8080/api/books/3/cancel?token=replaceme">Rambo cancel the apply, replace the token</a>http://localhost:8080/api/books/3/cancel?token=replaceme</li>
 <li><a href="http://localhost:8080/api/books/3/reject?token=replaceme">David reject the apply, replace the token</a>http://localhost:8080/api/books/3/reject?token=replaceme</li>
 </ul>
 
@@ -62,10 +62,17 @@ other flow:
 <li><a href="http://localhost:7002/jolokia/read/Tomcat:type=Connector,port=8080">Tomcat MBean</a></li>
 </ul>
 
-
-<h4>4. At development Profile with H2 Console, we can visit the data of DB</h4>
+<h4>4. JAVA Simon:  a simple monitoring API for Application :</h4>
 <ul>
-<li><a href="http://localhost:8080/h2">http://localhost:8080/h2/</a></li>
+<li><a href="http://localhost:8080/javasimon" target="_blank">JavaSimon http://localhost:8080/javasimon</a></li>
+</ul>
+<h4>5. At development Profile with H2 Console, we can visit the data of DB</h4>
+<ul>
+<li><a href="http://localhost:8080/h2" target="_blank">http://localhost:8080/h2/</a></li>
+</ul>
+<h4>6. Swaggen UI for API Documentation</h4>
+<ul>
+<li><a href="http://localhost:8080/swagger-ui.html" target="_blank">http://localhost:8080/swagger-ui.html</a></li>
 </ul>
 </body>
 </html>
