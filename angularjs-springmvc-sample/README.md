@@ -3,9 +3,9 @@ angularjs-springmvc-sample
 
 An example application using AnguarJS/Bootstrap as frontend and Spring MVC as REST API producer.
 
-**More details about the codes, please read the online GitBook: [Building REST APIs with Spring MVC](https://www.gitbook.com/book/hantsy/build-a-restful-app-with-spring-mvc-and-angularjs/details/).**
+**More details about the codes, please read the online GitBook: [Building REST APIs with Spring MVC](https://www.gitbook.com/book/freerambo/build-a-restful-app-with-spring-mvc-and-angularjs/details/).**
 
-[![Build Status](https://drone.io/github.com/hantsy/angularjs-springmvc-sample/status.png)](https://drone.io/github.com/hantsy/angularjs-springmvc-sample/latest)
+[![Build Status](https://drone.io/github.com/freerambo/angularjs-springmvc-sample/status.png)](https://drone.io/github.com/freerambo/angularjs-springmvc-sample/latest)
 
 ##Contribution
 
@@ -35,7 +35,7 @@ Thank the DevFactory team member [@misgersameer](https://github.com/misgersameer
    1. Clone the codes.
 
     <pre>
-    git clone https://github.com/hantsy/angularjs-springmvc-sample
+    git clone https://github.com/freerambo/angularjs-springmvc-sample
     </pre>
   
    2. And enter the root folder, run `mvn tomcat7:run` to start up an embedded tomcat7 to serve this application.
@@ -48,4 +48,4 @@ Thank the DevFactory team member [@misgersameer](https://github.com/misgersameer
 
 ## Spring Boot
 
-If you are interested in Spring Boot, I have moved the `boot` branch into a new project [angularjs-springmvc-sample-boot](https://github.com/hantsy/angularjs-springmvc-sample-boot).
+If you are interested in Spring Boot, I have moved the `boot` branch into a new project [angularjs-springmvc-sample-boot](https://github.com/freerambo/angularjs-springmvc-sample-boot).
