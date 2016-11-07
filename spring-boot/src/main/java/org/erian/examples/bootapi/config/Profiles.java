@@ -3,7 +3,7 @@ package org.erian.examples.bootapi.config;
 /**
  * 定义项目中使用的Profiles
  * 
- * @author calvin
+ * @author rambo
  */
 public class Profiles {
 

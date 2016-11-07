@@ -26,9 +26,9 @@ import org.javasimon.aop.Monitored;
 
 // Spring Restful MVC Controller的标识, 直接输出内容，不调用template引擎.
 @RestController
-public class BookEndpoint {
+public class BookController {
 
-	private static Logger logger = LoggerFactory.getLogger(BookEndpoint.class);
+	private static Logger logger = LoggerFactory.getLogger(BookController.class);
 
 	@Autowired
 	private AccountService accountService;

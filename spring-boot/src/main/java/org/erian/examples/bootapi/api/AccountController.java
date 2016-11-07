@@ -17,9 +17,9 @@ import org.erian.modules.constants.MediaTypes;
 
 // Spring Restful MVC Controller的标识, 直接输出内容，不调用template引擎.
 @RestController
-public class AccountEndPoint {
+public class AccountController {
 
-	private static Logger logger = LoggerFactory.getLogger(AccountEndPoint.class);
+	private static Logger logger = LoggerFactory.getLogger(AccountController.class);
 
 	@Autowired
 	private AccountService accountServcie;
