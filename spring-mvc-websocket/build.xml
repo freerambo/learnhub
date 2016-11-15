@@ -1,0 +1,11 @@
+<project name="spring-mvc-websocket" default="hot-deploy">
+
+	<property environment="env" />
+
+	<target name="hot-deploy">
+		<copy todir="target/spring-mvc-websocket">
+			<fileset dir="src/main/webapp/" />
+		</copy>
+	</target>
+
+</project>
