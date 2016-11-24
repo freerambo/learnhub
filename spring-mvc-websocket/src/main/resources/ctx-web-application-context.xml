@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<context:component-scan base-package="org.wpattern.frameworks.spring.mvc" />
+	<context:component-scan base-package="org.rambo.frameworks.spring.mvc" />
 	
 	<mvc:annotation-driven />
 

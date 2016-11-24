@@ -1,4 +1,4 @@
-package org.wpattern.frameworks.spring.mvc.utils;
+package org.rambo.frameworks.spring.mvc.utils;
 
 import java.io.Serializable;
 

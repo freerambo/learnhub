@@ -1,4 +1,4 @@
-package org.wpattern.frameworks.websocket;
+package org.rambo.frameworks.websocket;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnError;

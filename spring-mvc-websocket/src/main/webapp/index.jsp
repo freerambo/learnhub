@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
-	<title>WPattern Spring MVC</title>
+	<title>Rambo Spring MVC</title>
 </h:head>
 <h:body>
 	<center>
@@ -16,7 +16,10 @@
 			<a href="/contact.html">Contacts</a> <br/>
 			<br/>
 			<a href="/hello/helloWS.html">Hello WebSocket</a> <br/>
-			<a href="/contact/listWS.html">Real Time WebSocket</a>
+			<a href="/contact/listWS.html">Real Time WebSocket</a><br/>
+			<br/>
+			<a href="/device.htm">Device WebSocket</a>
+			
 		</h4>
 	</center>
 </h:body>

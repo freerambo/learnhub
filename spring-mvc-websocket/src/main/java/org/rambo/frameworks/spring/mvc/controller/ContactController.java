@@ -1,18 +1,18 @@
-package org.wpattern.frameworks.spring.mvc.controller;
+package org.rambo.frameworks.spring.mvc.controller;
 
 import java.util.Iterator;
 
 import org.apache.log4j.Logger;
+import org.rambo.frameworks.spring.mvc.model.ContactBean;
+import org.rambo.frameworks.spring.mvc.model.ContactFormBean;
+import org.rambo.frameworks.spring.mvc.model.Dataset;
+import org.rambo.frameworks.websocket.ContactWS;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.wpattern.frameworks.spring.mvc.model.ContactBean;
-import org.wpattern.frameworks.spring.mvc.model.ContactFormBean;
-import org.wpattern.frameworks.spring.mvc.model.Dataset;
-import org.wpattern.frameworks.websocket.ContactWS;
 
 @Controller
 @RequestMapping(value = { "/contact" })

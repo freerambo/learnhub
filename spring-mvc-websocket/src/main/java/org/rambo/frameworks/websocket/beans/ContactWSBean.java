@@ -1,7 +1,7 @@
-package org.wpattern.frameworks.websocket.beans;
+package org.rambo.frameworks.websocket.beans;
 
-import org.wpattern.frameworks.spring.mvc.model.ContactBean;
-import org.wpattern.frameworks.spring.mvc.utils.BaseBean;
+import org.rambo.frameworks.spring.mvc.model.ContactBean;
+import org.rambo.frameworks.spring.mvc.utils.BaseBean;
 
 public class ContactWSBean extends BaseBean {
 

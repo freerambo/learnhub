@@ -1,4 +1,4 @@
-package org.wpattern.frameworks.websocket;
+package org.rambo.frameworks.websocket;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -12,8 +12,8 @@ import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.wpattern.frameworks.spring.mvc.model.ContactBean;
-import org.wpattern.frameworks.websocket.beans.ContactWSBean;
+import org.rambo.frameworks.spring.mvc.model.ContactBean;
+import org.rambo.frameworks.websocket.beans.ContactWSBean;
 
 @ServerEndpoint(value = "/ws/contact")
 public class ContactWS {

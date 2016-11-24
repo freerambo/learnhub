@@ -1,4 +1,4 @@
-package org.wpattern.frameworks.spring.mvc.model;
+package org.rambo.frameworks.spring.mvc.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package org.wpattern.frameworks.spring.mvc.model;
+package org.rambo.frameworks.spring.mvc.model;
 
-import org.wpattern.frameworks.spring.mvc.utils.BaseBean;
+import org.rambo.frameworks.spring.mvc.utils.BaseBean;
 
 public class ContactBean extends BaseBean {
 

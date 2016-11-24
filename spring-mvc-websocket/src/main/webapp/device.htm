@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Device Controller</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="js/websocket.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div id="wrapper">
+    <h1>Device Controller</h1>
+    <p>Welcome to the Java WebSocket Home. Click the Add a device button to start adding devices.</p>
+    <br/>
+    <div id="addDevice">
+        <div class="button"><a href="#" OnClick="showForm()">Add a device</a></div>
+        <form id="addDeviceForm">
+            <h3>Add a new device</h3>
+            <span> Type:
+                <select id="device_event">
+                    <option name="event" value="source_dc_001">DC SOURCE</option>
+                    <option name="event" value="source_ac_001">AC SOURCE</option>
+                    <option name="event" value="load_dc_001">DC LOAD</option>
+                    <option name="event" value="load_ac_001">AC LOAD</option>
+                 	<option name="event" value="converters">CONVERTER</option>
+                    <option name="event" value="others">OTHER　DEVICE</option>
+                
+                </select>
+            </span>
+            <span>UserID: <input type="text" name="device_userID" id="device_userID"></span>
+
+            <input type="button" class="button" value="Add" onclick=formSubmit()>
+            <input type="reset" class="button" value="Cancel" onclick=hideForm()>
+        </form>
+    </div>
+    <br/>
+    <h3>Currently connected devices:</h3>
+    <div id="content">
+    </div>
+</div>
+
+</body>
+</html>

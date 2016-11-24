@@ -22,7 +22,7 @@
 		</layout>
 	</appender>
 
-	<logger name="org.wpattern.frameworks">
+	<logger name="org.rambo.frameworks">
 		<level value="debug" />
 	</logger>
 
