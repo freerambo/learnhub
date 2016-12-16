@@ -1,0 +1,105 @@
+<div class="dc_load_01">
+	
+	<div class="readValue">
+	
+	<div class="col-sm-12">
+
+				<label class="col-sm-4 control-label">
+					Voltage(V) </label>
+				<div class="col-sm-8 ">
+					<strong class="waiting" id="dcload_voltage">Waiting</strong>
+				</div>
+				
+				</div>	<div class="col-sm-12">
+				
+			
+				<label  class="col-sm-4 control-label">
+					Current(A) </label>
+				<div class="col-sm-8">
+					<strong class="waiting" id="dcload_current">Waiting</strong>
+				</div>
+		</div>
+		<div class="col-sm-12">
+				<label class="col-sm-4 control-label">
+					Power(W) </label>
+				<div class="col-sm-8">
+					<strong id="dcload_power" class="waiting">Waiting</strong>
+				</div>
+							</div>	<div class="col-sm-12">
+			
+				<label  class="col-sm-4 control-label">
+					Resistance(Ω) </label>
+				<div class="col-sm-8">
+					<strong class="waiting" id="dcload_resistance">Waiting</strong>
+				</div>
+		</div>
+		
+	
+	
+	
+	</div>
+		
+		
+	<div class="setValue">
+
+	<div class="col-sm-12">	<br/>
+	<br/>
+				<label class="col-sm-4 control-label">
+					Mode </label>
+				<div class="col-sm-8 ">
+				<select id="dcload_mode">
+				<option value="NA">Choose a mode please</option>
+									<option value="0">Constant Current Low</option>
+									<option value="1">Constant Current High</option>
+									<option value="4">Constant Resistance Low</option>
+									<option value="5">Constant Resistance High</option>
+									<option value="6">Constant Voltage Low</option>
+									<option value="7">Constant Voltage High</option>
+									<option value="8">Constant Power Low</option>
+									<option value="9">Constant Power High</option>
+								</select>	
+				</div>
+			
+		</div>
+		<div class="col-sm-12">
+				<label class="col-sm-4 control-label">
+					Channel </label>
+				<div class="col-sm-8 ">
+			<select  id="channel">
+				<option value="NA">Choose a channel</option>
+									<option value="chanelA">chanelA</option>
+									<option value="chanelB">chanelB</option>
+								</select>	
+
+				</div>
+			
+			
+		</div>
+		
+			<div class="col-sm-12">
+			
+				<label class="col-sm-3 control-label">
+						Value： </label>
+					<div class="col-sm-4 ">
+											<input type="text" name="value" value="100"/>
+						
+	<br/>
+					</div>
+			</div>
+			
+			<span class="col-sm-12">
+				<span class="col-sm-3">
+						   <button type = "button" class = "btn btn-primary">
+      Save
+   </button></span>
+					<span class="col-sm-3">
+<button type = "button" class = "btn btn-default">Reset</button>
+
+	
+					</span>
+			</span>
+	
+	
+	</div>
+
+</div>

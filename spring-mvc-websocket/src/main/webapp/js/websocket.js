@@ -8,6 +8,11 @@ socket.onmessage = onMessage;
 function onMessage(event) {
     var device = JSON.parse(event.data);
     var d = device.device;
+    if (device.action === "details") {
+        printDeviceElement(d);
+    }
+    
+    
     if (device.action === "add") {
         printDeviceElement(d);
     }
@@ -44,6 +49,23 @@ function removeDevice(element) {
     };
     socket.send(JSON.stringify(DeviceAction));
 }
+function deviceDetail(element, eventTile){
+	var deviceType= eventTile;
+	  var id = element;
+	    var DeviceAction = {
+	        action: "details",
+	        id: id,
+	        eventTile: deviceType
+	    };
+	    socket.send(JSON.stringify(DeviceAction));
+	    if("DC_LOAD" == deviceType){
+		    $( "#devicePanel" ).load( "devices/dcload.htm" );
+
+	    }  else{
+		    $( "#devicePanel" ).load( "devices/dcsource.htm" );
+	    }
+
+}
 
 function toggleDevice(element) {
     var id = element;
@@ -58,9 +80,11 @@ function printDeviceElement(device) {
     var content = document.getElementById("content");
 
     var deviceDiv = document.createElement("div");
-    deviceDiv.setAttribute("id", device.id);
-    deviceDiv.setAttribute("class", "device " + device.color);
-    content.appendChild(deviceDiv);
+    $(deviceDiv).attr("id", device.id);
+    $(deviceDiv).attr("class", "device " + device.color);
+    
+    $(deviceDiv).appendTo($("#content"));
+    //content.appendChild(deviceDiv);
 
     var eventTitle = document.createElement("span");
     eventTitle.setAttribute("class", "deviceEventTitle");
@@ -68,11 +92,11 @@ function printDeviceElement(device) {
     deviceDiv.appendChild(eventTitle);
 
     var eventID = document.createElement("span");
-    eventID.innerHTML = "<b>Event ID:</b> " + device.eventID;
+    eventID.innerHTML = "<b>Device ID:</b> " + device.eventID;
     deviceDiv.appendChild(eventID);
 
     var userID = document.createElement("span");
-    userID.innerHTML = "<b>User ID:</b> " + device.userID;
+    userID.innerHTML = "<b>Supplier ID:</b> " + device.userID;
     deviceDiv.appendChild(userID);
 
     var deviceStatus = document.createElement("span");
@@ -90,7 +114,7 @@ function printDeviceElement(device) {
 
     var removeDevice = document.createElement("span");
     removeDevice.setAttribute("class", "removeDevice");
-    removeDevice.innerHTML = "<a href=\"#\" OnClick=removeDevice(" + device.id + ")>Remove device</a>";
+    removeDevice.innerHTML = "<a href=\"#\" OnClick=deviceDetail(" + device.id + ",\'"+ device.eventTitle +"\')>Details   </a> " +"<a href=\"#\" OnClick=removeDevice(" + device.id + ")>    Remove</a>";
     deviceDiv.appendChild(removeDevice);
 }
 

@@ -36,18 +36,29 @@ public class DeviceWebSocketServer {
 	static final ObjectMapper objectMapper = new ObjectMapper();
 
 	static {
+		
+		Device device1 = new Device();
+		device1.setEventID("load_dc_001");
+		device1.setEventTitle("DC_LOAD");
+		device1.setUserID("er");
+		device1.setStatus("Off");
+		sessionHandler.addDevice(device1);
+	
+			
+		
 		Device device = new Device();
 		device.setEventID("source_ac_001");
-		device.setEventTitle("AC Source");
+		device.setEventTitle("AC_Source");
 		device.setUserID("user1");
 		device.setStatus("Off");
 		sessionHandler.addDevice(device);
-		Device device1 = new Device();
-		device1.setEventID("load_dc_001");
-		device1.setEventTitle("DC LOAD");
-		device1.setUserID("user2");
-		device1.setStatus("Off");
-		sessionHandler.addDevice(device1);
+
+		Device device2 = new Device();
+		device2.setEventID("source_dc_001");
+		device2.setEventTitle("DC_SOURCE");
+		device2.setUserID("user2");
+		device2.setStatus("Off");
+		sessionHandler.addDevice(device2);
 	}
 	@OnOpen
 	public void open(Session session) {
@@ -88,6 +99,10 @@ public class DeviceWebSocketServer {
 				Integer id = Integer.parseInt(jsonMessage.get("id").toString());
 				sessionHandler.toggleDevice(id);
 			}
+			if ("details".equals(jsonMessage.get("action"))) {
+				Integer id = Integer.parseInt(jsonMessage.get("id").toString());
+				sessionHandler.toggleDevice(id);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -123,7 +138,7 @@ class DeviceSessionHandler {
 		return new ArrayList<Device>(devices);
 	}
 
-	public void addDevice(Device device) {
+	public synchronized void  addDevice(Device device) {
 		device.setId(deviceId);
 		devices.add(device);
 		deviceId++;
@@ -139,6 +154,14 @@ class DeviceSessionHandler {
 		}
 	}
 
+	
+	public void detailedDevice(int id) {
+		Device device = getDeviceById(id);
+		if (device != null) {
+			devices.remove(device);
+			sendToAllConnectedSessions(new DeviceBean(device, "details"));
+		}
+	}
 	public void toggleDevice(int id) {
 		Device device = getDeviceById(id);
 		if (device != null) {
@@ -160,19 +183,21 @@ class DeviceSessionHandler {
 		}
 		return null;
 	}
+	
+
 
 	private DeviceBean createAddMessage(Device device) {
 		return new DeviceBean(device, "add");
 	}
 
-	private void sendToAllConnectedSessions(DeviceBean message) {
+	private void sendToAllConnectedSessions(BaseBean message) {
 
 		for (Session session : sessions) {
 			sendToSession(session, message);
 		}
 	}
 
-	private void sendToSession(Session session, DeviceBean message) {
+	private void sendToSession(Session session, BaseBean message) {
 		try {
 			session.getBasicRemote().sendText(mapper.writeValueAsString(message));
 		} catch (IOException ex) {
@@ -293,7 +318,6 @@ class DeviceBean extends BaseBean {
 		this.device = device;
 		this.action = action;
 	}
-
 	public Device getDevice() {
 		return device;
 	}
@@ -301,4 +325,20 @@ class DeviceBean extends BaseBean {
 	public String getAction() {
 		return action;
 	}
+}
+
+class DcLoadDate extends DeviceBean {
+
+	/**  
+	 * @fields serialVersionUID  
+	*/  
+		
+	private static final long serialVersionUID = -8660207182404240675L;
+
+	public DcLoadDate(Device device, String action) {
+		super(device, action);
+	}
+	
+	
+
 }
