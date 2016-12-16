@@ -3,12 +3,36 @@
 <head>
     <title>Device Controller</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/websocket.js"></script>
+    <script src="js/interact.js"></script>
+    
+    <script src="js/dragable.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <style type="text/css">
+    
+	    #content {
+		  width: 100%;
+		  background-color: #ccc;
+		}
+    </style>
+    
 </head>
 <body>
-
-<div id="wrapper">
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+  <div class="col-xs-12 col-md-9">
+  <div id="wrapper">
     <h1>Device Controller</h1>
     <p>Welcome to the Java WebSocket Home. Click the Add a device button to start adding devices.</p>
     <br/>
@@ -18,16 +42,16 @@
             <h3>Add a new device</h3>
             <span> Type:
                 <select id="device_event">
-                    <option name="event" value="source_dc_001">DC SOURCE</option>
-                    <option name="event" value="source_ac_001">AC SOURCE</option>
-                    <option name="event" value="load_dc_001">DC LOAD</option>
-                    <option name="event" value="load_ac_001">AC LOAD</option>
+                    <option name="event" value="source_dc_001">DC_SOURCE</option>
+                    <option name="event" value="source_ac_001">AC_SOURCE</option>
+                    <option name="event" value="load_dc_001">DC_LOAD</option>
+                    <option name="event" value="load_ac_001">AC_LOAD</option>
                  	<option name="event" value="converters">CONVERTER</option>
-                    <option name="event" value="others">OTHER　DEVICE</option>
+                    <option name="event" value="others">OTHER</option>
                 
                 </select>
             </span>
-            <span>UserID: <input type="text" name="device_userID" id="device_userID"></span>
+            <span>Supplier: <input type="text" name="device_userID" id="device_userID"></span>
 
             <input type="button" class="button" value="Add" onclick=formSubmit()>
             <input type="reset" class="button" value="Cancel" onclick=hideForm()>
@@ -38,6 +62,20 @@
     <div id="content">
     </div>
 </div>
+  
+  
+  </div>
+  
+  <div class="col-xs-6 col-md-3">
+  	<div id="panel">
+	    <h1>Device Panel</h1>
+	    <p>Welcome to the Java WebSocket Home. Click the Add a device button to start adding devices.</p>
+	    <br/>
+	    <div id="devicePanel"></div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
