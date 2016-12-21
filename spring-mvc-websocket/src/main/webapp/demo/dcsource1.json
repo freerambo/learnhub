@@ -1,0 +1,85 @@
+{
+  "info" : {
+    "deviceId" : "DcSource01",
+    "deviceModel" : "Magna-Power Electronics Inc., MTD1000-100, S/N:1071-5207, F/W:8.6",
+    "macAddress" : "",
+    "ip" : "192.168.127.105",
+    "port" : 4001,
+    "protocol" : "tcp/ip"
+  },
+  "settings" : [
+    {
+      "name" :"overVoltageProtection",
+      "type": "text",
+      "placeholder": "Please input a value ",
+      "value": "450"
+    },
+    {
+      "name" :"overCurrentProtection",
+      "type": "text",
+      "placeholder": "Please input a value ",
+      "value": "20"
+    },
+    {
+      "name" :"voltage",
+      "type": "text",
+      "placeholder": "Please input a value ",
+      "value": "380"
+    },
+    {
+      "name" :"current",
+      "type": "text",
+      "placeholder": "Please input a value ",
+      "value": "10"
+    }
+
+  ],
+
+  "variables" : [
+    {
+      "name" : "outputVoltage",
+      "unit" : "V",
+      "type" : "float"
+    },
+    {
+      "name" : "outputCurrent",
+      "unit" : "A",
+      "type" : "float"
+    },
+    {
+      "name" : "overVoltageProtection",
+      "unit" : "V",
+      "type" : "float"
+    },
+    {
+      "name" : "overCurrentProtection",
+      "unit" : "A",
+      "type" : "float"
+    },
+    {
+      "name" : "sourceVoltage",
+      "unit" : "V",
+      "type" : "float"
+    },
+    {
+      "name" : "sourceCurrent",
+      "unit" : "A",
+      "type" : "float"
+    },
+    {
+      "name" : "power",
+      "unit" : "W",
+      "type" : "float"
+    },
+    {
+      "name" : "deviceStatus",
+      "type" : "String"
+    }
+  ],
+  "commands" : {
+    "read" : {
+    },
+    "set" : {
+    }
+  }
+}

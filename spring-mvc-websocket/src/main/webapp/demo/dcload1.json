@@ -1,0 +1,147 @@
+{
+  "info" : {
+    "deviceId" : "DcLoad01",
+    "deviceModel" : "Chroma,63804,1339,1.58",
+    "macAddress" : "",
+    "ip" : "192.168.127.121",
+    "port" : 4001,
+    "protocol" : "tcp/ip"
+  },
+  "settings" : [
+    {
+      "name":  "status" ,
+      "type": "radio",
+      "data" : [
+        ["on", "on"],
+        ["off", "off"]
+      ]
+    },
+    {
+      "name" :"mode",
+      "type": "radio",
+      "data" : [
+        ["0", "CCL"],
+        ["1", "CCH"],
+        ["2", "CRL"],
+        ["3", "CRH"],
+        ["4", "CVL"],
+        ["5", "CVH"],
+        ["6", "CPL"],
+        ["7", "CPH"]
+      ]
+    },
+    {
+      "name" :"channel",
+      "type": "radio",
+      "data" : [
+        ["channelA", "channelA"],
+        ["channelB", "channelB"]
+      ]
+    },
+    {
+      "name" :"inputValue",
+      "type": "text",
+      "placeholder": "Please input a value ",
+      "value": "50"
+    }],
+
+  "variables" : [
+    {
+      "name" : "voltage",
+      "unit" : "V",
+      "type" : "float"
+    },
+    {
+      "name" : "current",
+      "unit" : "A",
+      "type" : "float"
+    },
+    {
+      "name" : "power",
+      "unit" : "W",
+      "type" : "float"
+    },
+    {
+      "name" : "resistance",
+      "unit" : "Ω",
+      "type" : "float"
+    },
+    {
+      "name" : "energy",
+      "unit" : "kWh",
+      "type" : "float"
+    },
+    {
+      "name" : "mode",
+      "type" : "String"
+    },
+    {
+      "name" : "channel",
+      "type" : "String"
+    },
+    {
+      "name" : "deviceStatus",
+      "type" : "String"
+    }
+  ],
+  "commands" : {
+    "read" : {
+      "command" : "MEAS:VOLT?;CURR?;POW?;RES?;:LOAD?;:MODE?\n",
+      "parameters" : "voltage,current,power,resistance,deviceStatus,mode"
+    },
+    "set" : {
+      "CCH" : {
+        "channelA" : "MODE CCH;CURR:STAT A;STAT:L1 x;:MODE?;:CURR:STAT:L1?\n",
+        "channelB" : "MODE CCH;CURR:STAT B;STAT:L2 x;:MODE?;:CURR:STAT:L2?\n",
+        "setParameters" : "currentValue",
+        "getParameters" : "mode,currentValue"
+      },
+      "CCL" : {
+        "channelA" : "MODE CCL;CURR:STAT A;STAT:L1 x;:MODE?;:CURR:STAT:L1?\n",
+        "channelB" : "MODE CCL;CURR:STAT B;STAT:L2 x;:MODE?;:CURR:STAT:L2?\n",
+        "setParameters" : "currentValue",
+        "getParameters" : "mode,currentValue"
+      },
+      "CRH" : {
+        "channelA" : "MODE CRH;RES A;RES:L1 x;:MODE?;:RES:L1?\n",
+        "channelB" : "MODE CRH;RES B;RES:L2 x;:MODE?;:RES:L2?\n",
+        "setParameters" : "resistanceValue",
+        "getParameters" : "mode,resistanceValue"
+      },
+      "CRL" : {
+        "channelA" : "MODE CRL;RES A;RES:L1 x;:MODE?;:RES:L1?\n",
+        "channelB" : "MODE CRL;RES B;RES:L2 x;:MODE?;:RES:L2?\n",
+        "setParameters" : "resistanceValue",
+        "getParameters" : "mode,resistanceValue"
+      },
+      "CPH" : {
+        "channelA" : "MODE CPH;POW A;POW:L1 x;:MODE?;:POW:L1?\n",
+        "channelB" : "MODE CPH;POW B;POW:L2 x;:MODE?;:POW:L2?\n",
+        "setParameters" : "powerValue",
+        "getParameters" : "mode,powerValue"
+      },
+      "CPL" : {
+        "channelA" : "MODE CPL;POW A;POW:L1 x;:MODE?;:POW:L1?\n",
+        "channelB" : "MODE CPL;POW B;POW:L2 x;:MODE?;:POW:L2?\n",
+        "setParameters" : "powerValue",
+        "getParameters" : "mode,powerValue"
+      },
+      "CVH" : {
+        "channelA" : "MODE CVH;VOLT A;VOLT:L1 x;:MODE?;:VOLT:L1?\n",
+        "channelB" : "MODE CVH;VOLT B;VOLT:L2 x;:MODE?;:VOLT:L2?\n",
+        "setParameters" : "voltageValue",
+        "getParameters" : "mode,voltageValue"
+      },
+      "CVL" : {
+        "channelA" : "MODE CVL;VOLT A;VOLT:L1 x;:MODE?;:VOLT:L1?\n",
+        "channelB" : "MODE CVL;VOLT B;VOLT:L2 x;:MODE?;:VOLT:L2?\n",
+        "setParameters" : "voltageValue",
+        "getParameters" : "mode,voltageValue"
+      },
+      "status" : {
+        "on" : "turn_on_DCload",
+        "off" : "turn_off_DCload"
+      }
+    }
+  }
+}

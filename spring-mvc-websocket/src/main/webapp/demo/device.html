@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Device Form </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-websocket/2.0.1/angular-websocket.js"></script>
+-->
+<script src="ng-websocket.js"></script>
+
+
+<script type="text/javascript" src="device.js"></script>
+<link rel="stylesheet" href="https://www.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+
+
+<body ng-app="myApp">
+
+<div style="margin-left: 2cm;" ng-controller="MyCtrl">
+
+
+  <h4>Device Info</h4>
+  <div ng-repeat="(key,value) in device.info">
+
+    <h5>{{ key }} : {{value}}</h5>
+  </div>
+  <hr/>
+  <h4>Reading values - Input</h4>
+  <div ng-repeat="field in device.variables">
+
+    <h5>{{ field.name }} : <span ng-model="field.name"></span></h5>
+  </div>
+  <hr/>
+  <h4>Setting values  - Output</h4>
+  <form role="form" action="#" name="deviceForm" novalidate>
+
+  <div ng-repeat="field in device.settings">
+    <div ng-switch="field.type">
+      <div ng-switch-when="text">
+        <h5>{{ field.name }}</h5>
+
+        <!-- code to render an input field block -->
+        <input id="{{ field.name }}" type="text" name="textbox-{{ field.name }}" class="form-control"  ng-model="field.value" placeholder="{{ field.placeholder }}" />
+        <hr/>
+      </div>
+      <div ng-switch-when="radio">
+        <h5>{{ field.name }}</h5>
+
+        <!-- code to render a radio block -->
+        <div ng-repeat="choice in field.data">
+          <input name="single-{{ field.name }}" type="radio" id="single-{{ choice[0] }}" data-ng-value="choice[0]" />
+          <label for="single-{{ choice[0] }}">{{ choice[1] }}</label>
+        </div>
+        <hr/>
+      </div>
+      <div ng-switch-when="checkbox">
+        <h5>Checkbox field</h5>
+        <hr/>
+        <!-- code to render a checkbox block -->
+        <div ng-repeat="choice in field.choices">
+          <label for="multiple-{{ choice.id }}">
+            <input type="checkbox" ng-model="choice.selected" ng-value="choice.id" name="multiple-{{field.id}}" id="multiple-{{ choice.id }}" />{{ choice.name }}</label>
+        </div>
+      </div>
+      <!-- FALLBACK -->
+      <div ng-switch-default>Error. Invalid HTML element type.</div>
+    </div>
+  </div>
+
+    <!--#?single-status=off&single-mode=7&single-channel=channelB&textbox-inputValue=50-->
+    <input type="submit" class="btn btn-primary">
+  </form>
+  <div>
+
+  </div>
+
+  <h4>Fields - output</h4>
+  <hr/>
+  {{device}}
+</div>
+</body>
+
+</html>
