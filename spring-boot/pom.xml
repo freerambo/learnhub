@@ -42,7 +42,6 @@
 		<powermock.version>1.6.3</powermock.version>
 		<javasimon.version>3.5.2</javasimon.version>
 
-
 		<springfox.version>2.5.0</springfox.version>
 
 		<!-- Plugin的属性 -->
@@ -72,7 +71,6 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
-	
 
 		<!-- database -->
 		<dependency>
@@ -144,7 +142,12 @@
 			<version>${assertj.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>${junit.version}</version>
+		  <scope>test</scope>
+		</dependency>
 
 		
 		<!-- SpringFox Swagger UI -->

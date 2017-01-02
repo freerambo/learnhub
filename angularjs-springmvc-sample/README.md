@@ -5,7 +5,11 @@ An example application using AnguarJS/Bootstrap as frontend and Spring MVC as RE
 
 **More details about the codes, please read the online GitBook: [Building REST APIs with Spring MVC](https://www.gitbook.com/book/freerambo/build-a-restful-app-with-spring-mvc-and-angularjs/details/).**
 
+<<<<<<< HEAD
 [![Build Status](https://drone.io/github.com/hantsy/angularjs-springmvc-sample/status.png)](https://drone.io/github.com/hantsy/angularjs-springmvc-sample/latest)
+=======
+[![Build Status](https://drone.io/github.com/freerambo/learnhub/status.png)](https://drone.io/github.com/freerambo/learnhub/latest)
+>>>>>>> branch 'master' of https://github.com/freerambo/learnhub.git
 
 ##Contribution
 
