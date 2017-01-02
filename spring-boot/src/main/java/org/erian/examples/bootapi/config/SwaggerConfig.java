@@ -5,7 +5,6 @@ import static com.google.common.base.Predicates.or;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import static springfox.documentation.builders.PathSelectors.regex;
 import springfox.documentation.service.ApiInfo;
