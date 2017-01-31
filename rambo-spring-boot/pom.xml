@@ -10,7 +10,6 @@
 	
   <groupId>com.rambo</groupId>
   <artifactId>rambo-spring-boot</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>rambo-spring-boot</name>
   <description>rambo spring boot </description>
@@ -22,6 +21,8 @@
 <!-- 		<module>eg-spring-boot-customizing</module>
  -->
     <module>rambo-spring-boot-ws</module>
+    <module>rambo-spring-boot-shiro</module>
+    <module>rambo-spring-boot-weixin</module>
   </modules>
   
   <build>
@@ -42,4 +43,5 @@
 	</build>
   
   
+  <version>1.0</version>
 </project>
