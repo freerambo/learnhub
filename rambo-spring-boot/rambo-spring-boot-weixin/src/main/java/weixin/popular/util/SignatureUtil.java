@@ -104,7 +104,22 @@ public class SignatureUtil {
 		String[] array = new String[]{token,timestamp,nonce};
 		Arrays.sort(array);
 		String s = StringUtils.arrayToDelimitedString(array, "");
-		return DigestUtils.shaHex(s);
+		return DigestUtils.sha1Hex(s);
+	}
+	
+	/**
+	 * Validate the signature
+	 * @param token token
+	 * @param signature signature
+	 * @param timestamp timestamp
+	 * @param nonce nonce
+	 * @return boolean
+	 */
+	public static boolean checkSignature(String token, String signature, String timestamp, String nonce) {
+		
+		String tmpStr = generateEventMessageSignature(token,timestamp, nonce);
+		
+		return tmpStr != null && tmpStr.equalsIgnoreCase(signature);
 	}
 
 
@@ -222,4 +237,6 @@ public class SignatureUtil {
 		return map.get("sign").equals(generateSign(map,sign_type,key));
 	}
 
+	
+	
 }

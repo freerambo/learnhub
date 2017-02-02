@@ -1,4 +1,4 @@
-package org.rambo.spring.boot.weixin;
+package org.rambo.spring.boot.weixin.filter;
 
 
 import javax.servlet.*;

@@ -54,11 +54,10 @@ public class ReceiveServlet extends HttpServlet{
         }
 
         //验证请求签名
-        if(!signature.equals(SignatureUtil.generateEventMessageSignature(token,timestamp,nonce))){
+        if(!SignatureUtil.checkSignature(token, signature, timestamp, nonce)){
             System.out.println("The request signature is invalid");
             return;
         }
-
         if(inputStream!=null){
             //转换XML
             EventMessage eventMessage = XMLConverUtil.convertToObject(EventMessage.class,inputStream);

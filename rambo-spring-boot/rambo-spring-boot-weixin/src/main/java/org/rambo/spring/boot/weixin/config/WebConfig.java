@@ -1,9 +1,12 @@
-package org.rambo.spring.boot.weixin;
+package org.rambo.spring.boot.weixin.config;
 
 import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.List;
 
+import org.rambo.spring.boot.weixin.filter.TestFilter;
+import org.rambo.spring.boot.weixin.listener.DemoListener;
+import org.rambo.spring.boot.weixin.servlet.DemoServlet;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

@@ -1,4 +1,4 @@
-package org.rambo.spring.boot.weixin;
+package org.rambo.spring.boot.weixin.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

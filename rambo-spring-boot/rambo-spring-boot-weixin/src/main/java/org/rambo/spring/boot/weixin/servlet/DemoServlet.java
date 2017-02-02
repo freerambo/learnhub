@@ -1,5 +1,5 @@
 
-package org.rambo.spring.boot.weixin;
+package org.rambo.spring.boot.weixin.servlet;
 
 import java.io.IOException;
 
