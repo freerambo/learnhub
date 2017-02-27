@@ -119,7 +119,7 @@ public class GridController {
 	 * sour:freq?;:volt:ac?;:volt:lim:ac?;:POW:prot?;:curr:lim?;:outp?\n
 	 */
 	@RequestMapping(value = "setRead", method = RequestMethod.POST, produces = MediaTypes.JSON_UTF_8)
-	public BaseResult<ReadSet> setValues(@RequestBody GridSet set) {
+	public BaseResult<ReadSet> setValues(@RequestBody @Valid GridSet set) {
 
 		BaseResult<ReadSet> result = null;
 

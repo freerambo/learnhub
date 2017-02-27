@@ -47,7 +47,7 @@ public class SwaggerConfig {
 	        return new ApiInfoBuilder()
 	                .title("Spring Boot Example API")
 	                .description("Spring Boot Example API reference for developers")
-	                .termsOfServiceUrl("www.freerambo.com")
+	                .termsOfServiceUrl("http://www.freerambo.com")
 	                .contact(new Contact("Rambo Zhu", "www.freerambo.com", "asybzhu@gmail.com"))
 	                .license("Apache License Version 2.0")
 	                .licenseUrl("https://github.com/springfox/springfox/blob/master/LICENSE")
