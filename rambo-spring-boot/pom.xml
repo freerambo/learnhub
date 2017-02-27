@@ -23,6 +23,7 @@
     <module>rambo-spring-boot-ws</module>
     <module>rambo-spring-boot-shiro</module>
     <module>rambo-spring-boot-weixin</module>
+    <module>rambo-spring-boot-cache</module>
   </modules>
   
   <build>
