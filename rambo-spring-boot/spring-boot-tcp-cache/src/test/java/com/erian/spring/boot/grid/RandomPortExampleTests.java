@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
@@ -40,4 +42,21 @@ String command;
 //			 System.out.println("outp:rel?;:sour:freq?;:volt:ac?;:volt:lim:ac?;:POW:prot?;:curr?;\n"); 
 	}
 
+	
+	
+
+	@Autowired
+	private CacheManager cacheManager;
+
+
+	@Test
+	public void validateCache() {
+		Cache deviceValues = this.cacheManager.getCache("deviceValues");
+		assertThat(deviceValues).isNotNull();
+		deviceValues.clear(); // Simple test assuming the cache is empty
+		assertThat(deviceValues.get("BE")).isNull();
+		
+//		Country be = this.countryRepository.findByCode("BE");
+//		assertThat((Country) countries.get("BE").get()).isEqualTo(be);
+	}
 }

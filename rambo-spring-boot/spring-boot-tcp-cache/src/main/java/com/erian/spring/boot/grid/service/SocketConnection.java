@@ -32,6 +32,7 @@ public class SocketConnection {
 		return null;
 	}
 
+	@Cacheable(value="deviceValues", key="#ip+#port+#command")
 	public static String callDevice(String ip, int port, String command) {
 		StopWatch watch = new StopWatch();
 		Socket deviceSocket = null;
@@ -70,7 +71,8 @@ public class SocketConnection {
 		}
 		return data;
 	}
-
+	
+	@Cacheable(value="deviceValues", key="#ip+#port+#command")
 	public static void setDevice(String ip, int port, String command) {
 		// String command = (String)commands.get("command");
 		StopWatch watch = new StopWatch();
