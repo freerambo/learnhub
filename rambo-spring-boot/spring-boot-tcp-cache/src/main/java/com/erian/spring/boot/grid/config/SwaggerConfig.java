@@ -33,14 +33,14 @@ public class SwaggerConfig {
 	}
 
 	private Predicate<String> postPaths() {
-		return or(regex("/api/grid.*"), regex("/api/books.*"));
+		return or(regex("/api/grid.*"), regex("/api/test.*"));
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Spring Boot API by Swagger UI")
-				.description("Spring Boot Example API reference for developers")
-				.termsOfServiceUrl("http://www.freerambo.com")
-				.contact(new Contact("Rambo Zhu", "www.freerambo.com", "asybzhu@gmail.com"))
+		return new ApiInfoBuilder().title("RESTFul API for Grid Simulator by Spring Boot")
+				.description("Spring Boot RESTFul API reference for Microgrid developers")
+				.termsOfServiceUrl("http://erian.ntu.edu.sg/")
+				.contact(new Contact("ERIAN ICT TEAM", "http://erian.ntu.edu.sg/", "zhuyb@ntu.edu.sg"))
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://github.com/springfox/springfox/blob/master/LICENSE").version("2.0").build();
 	}

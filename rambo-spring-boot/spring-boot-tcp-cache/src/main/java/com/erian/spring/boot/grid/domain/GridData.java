@@ -26,8 +26,13 @@ public class GridData extends IdEntity {
 	@NotNull
 	public String deviceStatus;
 	
+	@NotNull
+	public Double powerFactor;
+	
 	public String deviceId = "gridsimulator";
 
+	public Integer condition;
+	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
 	public Date timestamp;
 	
@@ -38,8 +43,8 @@ public class GridData extends IdEntity {
 	}
 	
 	
-	public GridData(Double voltage, Double current, Double realPower, Double frequency, String deviceStatus,
-			String deviceId) {
+	public GridData(Double voltage, Double current, Double realPower,  Double powerFactor, Double frequency,String deviceStatus,
+			Integer condition,String deviceId) {
 		super();
 		this.voltage = voltage;
 		this.current = current;
@@ -47,6 +52,8 @@ public class GridData extends IdEntity {
 		this.frequency = frequency;
 		this.deviceStatus = deviceStatus;
 		this.deviceId = deviceId;
+		this.condition = condition;
+		this.powerFactor = powerFactor;
 		timestamp = new Date();
 	}
 

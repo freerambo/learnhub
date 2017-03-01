@@ -8,6 +8,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Status {
 
 	public String status;
+	public String tst;
 
 	public Status() {
 		super();
@@ -16,6 +17,13 @@ public class Status {
 	public Status(String status) {
 		super();
 		this.status = status;
+	}
+	
+
+	public Status(String tst, String status) {
+		super();
+		this.status = status;
+		this.tst = tst;
 	}
 
 	@Override

@@ -21,8 +21,9 @@ public class TestGrid {
 	 	result = SocketConnection.callDevice("192.168.127.110", 2101, off);
 		System.out.println("output： " + result); 
 	 
-		String set = "sour:freq 50;:volt:ac 115;:volt:lim:ac 150;:POW:prot 8000;:curr 20;sour:freq?;:volt:ac?;:volt:lim:ac?;:POW:prot?;:curr:lim?;:outp?\n";
+//		String set = "sour:freq 50;:volt:ac 115;:volt:lim:ac 150;:POW:prot 8000;:curr 20;sour:freq?;:volt:ac?;:volt:lim:ac?;:POW:prot?;:curr:lim?;:outp?\n";
 
+		String set = "sour:freq 50;:volt:ac 115;:volt:lim:ac 150;:POW:prot 8000;:curr 20;sour:freq?;:volt:ac?;:volt:lim:ac?;:POW:prot?;:curr:lim?;:outp?\n";
 		
 //	 	String command = "meas:volt:ac?;:meas:curr:ac?;:meas:pow:ac?;:meas:freq?\n";
 	 	

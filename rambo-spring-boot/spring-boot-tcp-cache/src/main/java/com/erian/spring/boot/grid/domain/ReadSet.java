@@ -16,7 +16,7 @@ public class ReadSet extends IdEntity{
 	@NotNull
 	public Double voltageLimit;
 	@NotNull
-	public Double powerLimit;
+	public Double powerProtection;
 	@NotNull
 	public Double currentLimit;
 	
@@ -30,13 +30,13 @@ public class ReadSet extends IdEntity{
 		super();
 	}
 	
-	public ReadSet(Double frequency, Double voltage, Double voltageLimit, Double powerLimit, Double currentLimit,
+	public ReadSet(Double frequency, Double voltage, Double voltageLimit, Double powerProtection, Double currentLimit,
 			String deviceStatus, String deviceId) {
 		super();
 		this.frequency = frequency;
 		this.voltage = voltage;
 		this.voltageLimit = voltageLimit;
-		this.powerLimit = powerLimit;
+		this.powerProtection = powerProtection;
 		this.currentLimit = currentLimit;
 		this.deviceStatus = deviceStatus;
 		this.deviceId = deviceId;

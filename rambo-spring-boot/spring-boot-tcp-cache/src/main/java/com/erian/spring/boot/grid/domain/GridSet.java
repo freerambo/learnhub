@@ -7,26 +7,28 @@ import javax.validation.constraints.NotNull;
 
 public class GridSet{
 	@NotNull
-	public Double frequency;
+	public Double frequency = 50.0;
 	@NotNull
-	public Double voltage;
+	public Double voltage = 115.0;
 	@NotNull
-	public Double voltageLimit;
+	public Double voltageLimit = 150.0;
 	@NotNull
-	public Double powerLimit;
+	public Double powerProtection = 10000.0;
 	@NotNull
-	public Double currentLimit;
-
+	public Double currentLimit = 20.0;
+	
+	public String deviceStatus = null;
+	
 	public GridSet() {
 		super();
 	}
 
-	public GridSet(Double frequency, Double voltage, Double voltageLimit, Double powerLimit, Double currentLimit) {
+	public GridSet(Double frequency, Double voltage, Double voltageLimit, Double powerProtection, Double currentLimit) {
 		super();
 		this.frequency = frequency;
 		this.voltage = voltage;
 		this.voltageLimit = voltageLimit;
-		this.powerLimit = powerLimit;
+		this.powerProtection = powerProtection;
 		this.currentLimit = currentLimit;
 	}
 	

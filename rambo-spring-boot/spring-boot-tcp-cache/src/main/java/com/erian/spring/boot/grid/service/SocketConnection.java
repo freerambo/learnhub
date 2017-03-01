@@ -38,7 +38,6 @@ public class SocketConnection {
 		Socket deviceSocket = null;
 		DataOutputStream dataOutputStream = null;
 		BufferedReader bufferedReader = null;
-
 		String data = "";
 		byte[] byteCommand = command.getBytes();
 
@@ -60,10 +59,17 @@ public class SocketConnection {
 			System.out.println(e.getMessage());
 		} finally {
 			try {
-				dataOutputStream.flush();
-				dataOutputStream.close();
-				bufferedReader.close();
-				deviceSocket.close();
+				if(dataOutputStream != null ){
+					dataOutputStream.flush();
+					dataOutputStream.close();
+				}
+			
+				if (bufferedReader != null) {
+					bufferedReader.close();
+				}
+				if (deviceSocket != null) {
+					deviceSocket.close();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -96,9 +102,13 @@ public class SocketConnection {
 			System.out.println(e.getMessage());
 		} finally {
 			try {
-				dataOutputStream.flush();
-				dataOutputStream.close();
-				deviceSocket.close();
+				if(dataOutputStream != null ){
+					dataOutputStream.flush();
+					dataOutputStream.close();
+				}
+				if (deviceSocket != null) {
+					deviceSocket.close();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
