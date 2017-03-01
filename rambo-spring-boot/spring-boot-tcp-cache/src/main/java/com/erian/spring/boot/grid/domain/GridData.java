@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -12,9 +13,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 /**    
  *meas:volt:ac?;:meas:curr:ac?;:meas:pow:ac?;:meas:freq?;outp?
  */
-public class GridData extends IdEntity {
+public class GridData/* extends IdEntity*/ {
 
-	
+    @Id
+    public String id;
+    
 	@NotNull
 	public Double voltage;
 	@NotNull
