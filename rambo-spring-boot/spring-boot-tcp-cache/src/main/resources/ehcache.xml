@@ -3,6 +3,8 @@
 	<cache name="deviceValues"
 		   maxEntriesLocalHeap="100"
 		   eternal="false"
-		   timeToLiveSeconds="1">
+		   timeToIdleSeconds="1"
+		   timeToLiveSeconds="1"
+		   memoryStoreEvictionPolicy="LRU">
 	</cache>
 </ehcache>
