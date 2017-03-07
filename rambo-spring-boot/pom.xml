@@ -24,6 +24,7 @@
     <module>rambo-spring-boot-shiro</module>
     <module>rambo-spring-boot-weixin</module>
     <module>rambo-spring-boot-cache</module>
+    <module>rambo-spring-boot-project</module>
   </modules>
   
   <build>
