@@ -42,7 +42,7 @@ public class GridSimulatorService {
 		this.gridRepository = gridRepository;
 	}
 
-	@Scheduled(fixedRate = 5000, initialDelay=10000)
+	@Scheduled(fixedRate = 60000, initialDelay=10000)
 	public void saveDeviceDataDB() {
 		String[] results = SocketConnection.requestData(ip, port, readValues);
 
