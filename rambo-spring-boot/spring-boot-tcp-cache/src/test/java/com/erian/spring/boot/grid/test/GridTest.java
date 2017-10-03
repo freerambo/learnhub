@@ -21,7 +21,7 @@ public class GridTest {
 //	 	String setCommand = "sour:freq 58;:volt:ac 121;:volt:lim:ac 180;:POW:prot 8200;:curr 29;\n";
 
 //		SocketConnection.setDevice("192.168.127.110", 2101, setCommand);
-		String result = SocketConnection.callDevice("192.168.127.110", 2101, command);
+		String result = SocketConnection.callDevice("192.168.127.234", 4001, "02030BF30002362F");
 		System.out.println("output： " + result); 
 	}
 

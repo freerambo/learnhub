@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 /**
  * function description：
  *
@@ -41,7 +42,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Create:  2 Mar 2017 4:10:15 pm
  */
 
-@RequestMapping("/user")
+@RequestMapping("/shiro")
 @RestController
 public class ShiroController {
 
@@ -130,8 +131,7 @@ public class ShiroController {
 //    @RequiresRoles("")
     @RequestMapping("/user")
     public String getUserList(Map<String, Object> model){
-        model.put("userList", userDao.findAll());
-        return "user";
+        return "user" + getCurrentUsername();
     }
 
    
@@ -140,4 +140,12 @@ public class ShiroController {
         logger.info("------进入用户信息修改-------");
         return "user_edit";
     }
+    
+	/**
+	 * get the current user Id from shiro.
+	 */
+	private String getCurrentUsername() {
+		String username = (String)SecurityUtils.getSubject().getPrincipal();
+		return username;
+	}
 }

@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -37,7 +38,7 @@ public class ErrorPageController implements ErrorController {
 
 	private ErrorAttributes errorAttributes = new DefaultErrorAttributes();
 
-	@RequestMapping(value = "${error.path:/error}", produces = MediaTypes.JSON_UTF_8)
+	@RequestMapping(value = "${error.path:/error}",method=RequestMethod.GET, produces = MediaTypes.JSON_UTF_8)
 	@ResponseBody
 	public ErrorResult handle(HttpServletRequest request) {
 		Map<String, Object> attributes = getErrorAttributes(request);

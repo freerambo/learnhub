@@ -4,6 +4,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.ShiroException;
+//import org.apache.shiro.authz.UnauthenticatedException;
+//import org.apache.shiro.authz.UnauthorizedException;
 import org.rambo.spring.boot.project.common.constants.MediaTypes;
 import org.rambo.spring.boot.project.common.utils.IPUtils;
 import org.rambo.spring.boot.project.common.utils.JsonMapper;
@@ -29,7 +32,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
 	private JsonMapper jsonMapper = new JsonMapper();
 
-	@ExceptionHandler(value = { ServiceException.class })
+	@ExceptionHandler(value = { ServiceException.class})
 	public final ResponseEntity<ErrorResult> handleServiceException(ServiceException ex, HttpServletRequest request) {
 		// 注入servletRequest，用于出错时打印请求URL与来源地址
 		logError(ex, request);
@@ -39,7 +42,35 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResult result = new ErrorResult(ex.errorCode.code, ex.getMessage());
 		return new ResponseEntity<ErrorResult>(result, headers, HttpStatus.valueOf(ex.errorCode.httpStatus));
 	}
+	
+/*	@ExceptionHandler(value = {UnauthenticatedException.class})
+	public final ResponseEntity<ErrorResult> handleUnAuthenticException(UnauthenticatedException ex, HttpServletRequest request) {
+		return handleShiroException(ex, request);
+	}
 
+	@ExceptionHandler(value = {UnauthorizedException.class })
+	public final ResponseEntity<ErrorResult> handleUnAuthorizeException(UnauthorizedException ex, HttpServletRequest request) {
+		return handleShiroException(ex, request);
+	}*/
+	
+	/**
+	 * 
+	 * @function: shiro exception handler
+	 * @param ex
+	 * @param request
+	 * @return
+	 * @author: Rambo Zhu     8 Mar 2017 5:21:38 pm
+	 */
+	public ResponseEntity<ErrorResult> handleShiroException(ShiroException ex, HttpServletRequest request) {
+		// 注入servletRequest，用于出错时打印请求URL与来源地址
+		logError(ex, request);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.parseMediaType(MediaTypes.JSON_UTF_8));
+		ErrorResult result = new ErrorResult(401, ex.getMessage());
+		return new ResponseEntity<ErrorResult>(result, headers, HttpStatus.valueOf(401));
+	}
+	
 	@ExceptionHandler(value = { Exception.class })
 	public final ResponseEntity<ErrorResult> handleGeneralException(Exception ex, HttpServletRequest request) {
 		logError(ex, request);
