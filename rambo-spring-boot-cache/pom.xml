@@ -10,7 +10,7 @@
   <packaging>war</packaging>
   
   <groupId>com.rambo</groupId>
-  <artifactId>rambo-spring-boot-cache-cloud</artifactId>
+  <artifactId>rambo-spring-boot-cache</artifactId>
   <version>1.0</version>
   <name>rambo-spring-boot-cache</name>
   <url>http://maven.apache.org</url>
