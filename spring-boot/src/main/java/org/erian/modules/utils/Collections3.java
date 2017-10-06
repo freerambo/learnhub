@@ -40,7 +40,7 @@ import com.google.common.primitives.Longs;
  * 
  * 2. Guava Lists/Maps的newArrayLists(Element...elements)等函数
  * 
- * @author calvin
+ * @author yuanbo
  */
 @SuppressWarnings("rawtypes")
 public class Collections3 {

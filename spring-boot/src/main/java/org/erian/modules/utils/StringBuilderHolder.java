@@ -17,7 +17,7 @@ package org.erian.modules.utils;
  * 
  * </pre>
  * 
- * @author calvin
+ * @author yuanbo
  *
  */
 public class StringBuilderHolder {

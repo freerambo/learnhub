@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
  * 
  * 封装不同的输出风格, 使用不同的builder函数创建实例.
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class JsonMapper {
 

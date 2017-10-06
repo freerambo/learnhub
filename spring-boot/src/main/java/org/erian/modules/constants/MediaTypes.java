@@ -12,7 +12,7 @@ package org.erian.modules.constants;
  * 
  * Google的MediaType必须再调用toString()函数而不是常量，不能用于Restful方法的annotation。
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class MediaTypes {
 

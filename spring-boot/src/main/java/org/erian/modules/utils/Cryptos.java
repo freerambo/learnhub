@@ -21,7 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
  * 
  * 支持Hex与Base64两种编码方式.
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class Cryptos {
 

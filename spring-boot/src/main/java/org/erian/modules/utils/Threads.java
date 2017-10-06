@@ -18,7 +18,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 /**
  * 线程相关工具类.
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class Threads {
 
