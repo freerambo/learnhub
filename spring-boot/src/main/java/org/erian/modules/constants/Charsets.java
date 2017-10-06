@@ -5,7 +5,7 @@ import java.nio.charset.Charset;
 /**
  * JDK7可直接使用java.nio.charset.StandardCharsets.
  * 
- * @author calvin
+ * @author yuanbo
  *
  */
 public class Charsets {

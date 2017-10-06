@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
  * 3.Commons-Lang的xml/html escape
  * 4.JDK提供的URLEncoder
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class Encodes {
 

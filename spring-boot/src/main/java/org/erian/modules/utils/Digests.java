@@ -25,7 +25,7 @@ import com.google.common.hash.Hashing;
  * 
  * 也支持crc32，murmur32这些不追求安全性，性能较高，返回int的.
  * 
- * @author calvin
+ * @author yuanbo
  */
 public class Digests {
 

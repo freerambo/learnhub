@@ -68,16 +68,16 @@ public class BookEndpointTest extends BaseFunctionalTest {
 		BookDto firstBook = tasks.get(0);
 
 		assertThat(firstBook.title).isEqualTo("Big Data日知录");
-		assertThat(firstBook.owner.name).isEqualTo("Calvin");
+		assertThat(firstBook.owner.name).isEqualTo("yuanbo");
 
 		BookDto book = restTemplate.getForObject(resourceUrl + "/{id}", BookDto.class, 1L);
 		assertThat(book.title).isEqualTo("Big Data日知录");
-		assertThat(book.owner.name).isEqualTo("Calvin");
+		assertThat(book.owner.name).isEqualTo("yuanbo");
 	}
 
 	@Test
 	public void applyRequest() {
-		String token = login("calvin.xiao@erian.io");
+		String token = login("yuanbo.xiao@erian.io");
 
 		ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl + "/{id}/request?token={token}",
 				String.class, 3L, token);
@@ -116,7 +116,7 @@ public class BookEndpointTest extends BaseFunctionalTest {
 		assertThat(book.borrower).isNull();
 
 		// 自己借自己的书
-		String token = login("calvin.xiao@erian.io");
+		String token = login("yuanbo.xiao@erian.io");
 
 		response = restTemplate.getForEntity(resourceUrl + "/{id}/request?token={token}", String.class, 1L, token);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
@@ -129,7 +129,7 @@ public class BookEndpointTest extends BaseFunctionalTest {
 		logout(token);
 
 		// 借一本已被申请借出的书
-		token = login("calvin.xiao@erian.io");
+		token = login("yuanbo.xiao@erian.io");
 
 		response = restTemplate.getForEntity(resourceUrl + "/{id}/request?token={token}", String.class, 3L, token);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -158,7 +158,7 @@ public class BookEndpointTest extends BaseFunctionalTest {
 		logout(token);
 
 		// 确认借出
-		token = login("calvin.xiao@erian.io");
+		token = login("yuanbo.xiao@erian.io");
 
 		response = restTemplate.getForEntity(resourceUrl + "/{id}/confirm?token={token}", String.class, 1L, token);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

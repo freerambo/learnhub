@@ -14,6 +14,7 @@ import com.erian.spring.boot.grid.repository.GridSimulatorRepository;
 @EnableMongoRepositories(basePackageClasses = {GridSimulatorRepository.class})
 @SpringBootApplication
 public class TcpApplication {
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(TcpApplication.class, args);
