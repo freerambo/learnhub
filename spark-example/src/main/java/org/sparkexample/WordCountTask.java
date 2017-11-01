@@ -1,12 +1,16 @@
 package org.sparkexample;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.Tuple2;
 
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -23,10 +27,16 @@ public class WordCountTask {
   /**
    * This is the entry point when the task is called from command line with spark-submit.sh.
    * See {@see http://spark.apache.org/docs/latest/submitting-applications.html}
+ * @throws URISyntaxException 
    */
-  public static void main(String[] args) {
-    checkArgument(args.length > 0, "Please provide the path of input file as first parameter.");
-    new WordCountTask().run(args[0]);
+  public static void main(String[] args) throws URISyntaxException {
+//    checkArgument(args.length > 0, "Please provide the path of input file as first parameter.");
+		
+	  WordCountTask task = new WordCountTask();
+	  String inputFile = "C:/Users/zhuyb/git/learnhub/spark-example/src/test/resources/test.txt";
+
+//	  task.run(inputFile);
+	  task.calcPI(100000);
   }
 
   /**
@@ -51,11 +61,39 @@ public class WordCountTask {
     /*
      * Performs a work count sequence of tasks and prints the output with a logger.
      */
+//    JavaPairRDD<String, Integer> counts =
     context.textFile(inputFilePath)
         .flatMap(text -> Arrays.asList(text.split(" ")).iterator())
         .mapToPair(word -> new Tuple2<>(word, 1))
         .reduceByKey((a, b) -> a + b)
         .foreach(result -> LOGGER.info(
             String.format("Word [%s] count [%d].", result._1(), result._2)));
+    
+//    counts.saveAsTextFile("C:/Users/zhuyb/git/learnhub/spark-example/src/test/resources/counts.txt");
+    
   }
+  
+  public void calcPI(int size){
+	  String master = "local[*]";
+	  /*
+	     * Initialises a Spark context.
+	     */
+	    SparkConf conf = new SparkConf()
+	        .setAppName(WordCountTask.class.getName())
+	        .setMaster(master);
+	    JavaSparkContext sc  = new JavaSparkContext(conf);
+	  List<Integer> l = new ArrayList<Integer>(size);
+	  for (int i = 0; i < size; i++) {
+	    l.add(i);
+	  }
+
+	  long count = sc.parallelize(l).filter(i -> {
+	    double x = Math.random();
+	    double y = Math.random();
+	    return x*x + y*y < 1;
+	  }).count();
+	  System.out.println("Pi is roughly " + 4.0 * count / size);
+	  
+  }
+  
 }
