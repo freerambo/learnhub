@@ -14,16 +14,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import weixin.popular.example.TokenManagerListener;
+
 /**
  * 
  * Add servlet, filter & listener into springboot Ref.
  * http://www.tianshouzhi.com/api/tutorials/springboot/89
  */
 
-// @Configuration
+@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
-	@Bean
-	public FilterRegistrationBean getDemoFilter() {
+
+	/**
+	 * 
+	 * @function:  config the filter list
+	 * @return
+	 * @author: Rambo Zhu     12 Oct 2017 7:24:15 pm
+	 */
+	//	@Bean
+	public FilterRegistrationBean getFilterList() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
 		registrationBean.setFilter(new TestFilter());
 		List<String> urlPatterns = new ArrayList<String>();
@@ -34,8 +43,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return registrationBean;
 	}
 
-	@Bean
-	public ServletRegistrationBean getDemoServlet() {
+	/**
+	 * 
+	 * @function: config the servlet list
+	 * @return
+	 * @author: Rambo Zhu     12 Oct 2017 7:25:02 pm
+	 */
+//	@Bean
+	public ServletRegistrationBean getServletList() {
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean();
 		registrationBean.setServlet(new DemoServlet());
 		List<String> urlMappings = new ArrayList<String>();
@@ -46,10 +61,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public ServletListenerRegistrationBean<EventListener> getDemoListener() {
+	public ServletListenerRegistrationBean<EventListener> getListenerList() {
 		ServletListenerRegistrationBean<EventListener> registrationBean = new ServletListenerRegistrationBean<>();
-		registrationBean.setListener(new DemoListener());
-		// registrationBean.setOrder(1);
+		registrationBean.setListener(new TokenManagerListener());
+		// registrationBean.setListener(new DemoListener());
+		 registrationBean.setOrder(1);
 		return registrationBean;
 	}
+	
 }
