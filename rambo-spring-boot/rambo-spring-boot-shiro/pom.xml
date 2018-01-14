@@ -59,7 +59,11 @@
 		    <artifactId>shiro-freemarker-tags</artifactId>
 		    <version>0.1</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
   </dependencies>
   <packaging>war</packaging>
 </project>
