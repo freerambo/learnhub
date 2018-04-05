@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false">
+
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            />
+            
+    <cache name="tokens"
+		   maxEntriesLocalHeap="100"
+		   eternal="false"
+		   timeToIdleSeconds="1"
+		   timeToLiveSeconds="1"
+		   memoryStoreEvictionPolicy="LRU">
+	</cache>
+</ehcache>
